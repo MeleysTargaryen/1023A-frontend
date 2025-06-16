@@ -13,7 +13,10 @@ function Pagina() {
         preco: 90.0, 
         categoria: "maquiagem e beleza"
     }
-    ]);
+    ])
+    function TrataCadasatro() {
+        
+    }
   return (
     <>
       <header>
@@ -56,7 +59,7 @@ function Pagina() {
                  <input type="text" name = "nome"  id = "nome" placeholder="Digite o nome" />
                   <input type="text" name = "preco"  id = "preco" placeholder="Digite o preço" />
                    <input type="text" name = "categoria"  id = "categoria" placeholder="Digite a categoria" />
-                    <input type="submit" value = "Cadastrar" />
+                    <input type="submit" value = "Cadastrar" onClick={TrataCadasatro} />
             </div>
         </main>
         <footer></footer>
