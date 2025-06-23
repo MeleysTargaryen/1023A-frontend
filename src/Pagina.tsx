@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import './Pagina.css';
+
+
 interface ProdutosState {
         id: number,
         nome: string,
@@ -7,7 +10,7 @@ interface ProdutosState {
     }
 function Pagina() {
     const [nome, setNome] = useState("")
-    const [preco, setPreco] = useState(0)
+    const [preco, setPreco] = useState("")
     const [categoria, setCategoria] = useState("")
     const [id, setId] = useState("")
     const [produtos, setProdutos] = useState<ProdutosState[]>([
@@ -83,9 +86,9 @@ function Pagina() {
           </div>
             <div className="conteiner-cadastro">
                 <form onSubmit={TrataCadasatro}>
-                <input type="text" name = "id"  id = "id" placeholder="Digite o id" onChange={trataId} />
+                <input type="number" name = "id"  id = "id" placeholder="Digite o id" onChange={trataId} />
                  <input type="text" name = "nome"  id = "nome" placeholder="Digite o nome" onChange={trataNome} />
-                  <input type="text" name = "preco"  id = "preco" placeholder="Digite o preço" onChange={trataPreco} />
+                  <input type="number" name = "preco"  id = "preco" placeholder="Digite o preço" onChange={trataPreco} />
                    <input type="text" name = "categoria"  id = "categoria" placeholder="Digite a categoria" onChange={trataCategoria} />
                     <input type="submit" value = "Cadastrar" />
                     </form>

@@ -1,0 +1,74 @@
+
+body{
+    margin: 0px;
+}
+header{
+    background-color: #617c96;
+    display: flex;
+    justify-content: space-between ;
+    padding: 0px 10vw;
+    align-items: center;
+    min-height: 10vh; /*Altura minima do header*/
+}
+nav>ul{
+    list-style: none; /*Retira a bolinha ao lado do link*/
+    padding: 0px;
+    display: flex;
+    gap: 15px;
+}
+nav>ul>li>a{
+    text-decoration: none; /*Retira o sublinhado abaixo do link*/
+    color: white;
+    font-weight: normal; 
+}
+main{
+    margin-top: 15px;
+    padding: 0px 10vw; /*Para alinhar no centro*/
+    display: flex;
+}
+main>div{
+    flex: 1;
+}
+.conteiner-listagem{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+
+}
+.produto-conteiner{
+    border: 1px solid #617c96;
+    box-sizing: border-box;
+    padding: 15px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.655);  /*Sombra do produto*/
+    min-width: 200px;
+    min-height: 200px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+.conteiner-cadastro>form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #617c96;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.655);  /*Sombra do produto*/
+}
+form>input[type="text"]{
+    padding: 8px;
+    border: 1px solid #617c96;
+   
+}
+form>input[type="text"]:focus{
+   
+    outline: 1px solid #7993ac;
+}
+form>input[type="submit"]{
+    padding: 8px;
+    max-width: 150px;
+    background-color: #617c96;
+    color: white;
+     border: 1px solid #617c96;
+     font-weight: bold;
+}
