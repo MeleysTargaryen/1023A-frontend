@@ -15,13 +15,8 @@ function Pagina() {
     const [categoria, setCategoria] = useState("")
     const [id, setId] = useState("")
     const [mensagem, setMensagem] = useState("")
-    const [produtos, setProdutos] = useState<ProdutosState[]>([
-        {id: 1, 
-        nome: "Base da boca rosa", 
-        preco: 90.0, 
-        categoria: "maquiagem e beleza"
-    }
-    ])
+    const [produtos, setProdutos] = useState<ProdutosState[]>([]);
+
      useEffect(() => {
         const buscaDados = async()=> {
             try {
@@ -80,7 +75,9 @@ function Pagina() {
   return (
     <>
       <header>
-        <div>Logo</div>
+        <div>
+            <img src="https://cdn-icons-png.flaticon.com/128/4792/4792328.png" alt="Logo" />
+        </div>
         <nav>
             <ul>
                 <li>
@@ -96,9 +93,12 @@ function Pagina() {
         </nav>
      </header>
         <main>
-        <div className="mensagem">
-            <p>Erro ao executar fetch</p>
-        </div>
+
+            {mensagem&& 
+            <div className="mensagem">
+                <p>{mensagem}</p>
+            </div>}
+
           <div className="conteiner-listagem">
             {produtos.map(produto => {
                 return (
