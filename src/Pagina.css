@@ -25,6 +25,7 @@ main{
     margin-top: 15px;
     padding: 0px 10vw; /*Para alinhar no centro*/
     display: flex;
+    position: relative; /*Para a mensagem de sucesso ou erro*/
 }
 main>div{
     flex: 1;
@@ -71,4 +72,13 @@ form>input[type="submit"]{
     color: white;
      border: 1px solid #617c96;
      font-weight: bold;
+}
+.mensagem{
+    position: absolute;
+    right: 15px;
+    background-color: rgb(0, 255, 208);
+    color: blue;
+    padding: 8px 20px;
+    border: 1px solid #617c96;
+    border-radius: 4px;
 }

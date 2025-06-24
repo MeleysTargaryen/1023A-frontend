@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Pagina.css';
 
 
@@ -9,10 +9,12 @@ interface ProdutosState {
         categoria: string
     }
 function Pagina() {
+   
     const [nome, setNome] = useState("")
     const [preco, setPreco] = useState("")
     const [categoria, setCategoria] = useState("")
     const [id, setId] = useState("")
+    const [mensagem, setMensagem] = useState("")
     const [produtos, setProdutos] = useState<ProdutosState[]>([
         {id: 1, 
         nome: "Base da boca rosa", 
@@ -20,6 +22,34 @@ function Pagina() {
         categoria: "maquiagem e beleza"
     }
     ])
+     useEffect(() => {
+        const buscaDados = async()=> {
+            try {
+            const resultado = await fetch("https://localhost:8000/produtos") //devolve a rota 
+            if (resultado.status === 200) {
+               const dados = await resultado.json(); //converte o resultado em json
+               setProdutos(dados); //atualiza o estado com os dados recebidos
+            }
+             if (resultado.status === 400) {
+                const erro = await resultado.json()
+                setMensagem(erro.mensagem);
+                //console.log(erro.mensagegm);
+               
+            }
+        }
+        catch (error) {
+          
+            setMensagem("Fetch falhou, verifique a API");
+          }
+        }
+        buscaDados()
+
+    },[]) 
+
+    //[] Significa as dependências do useEffect, nesse caso não tem dependências, 
+    // então ele só executa uma vez quando o componente é montado. 
+    // Sempre que a dependendência mudar, o useEffect será executado novamente.
+
     function TrataCadasatro(event:React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         const novoProduto: ProdutosState = { 
@@ -57,15 +87,18 @@ function Pagina() {
                     <a href="">Home</a>
                 </li>
                 <li>
-                    <a href="">Home</a>
+                    <a href="">Lojas</a>
                 </li>
                 <li>
-                    <a href="">Home</a>
+                    <a href="">Carinho</a>
             </li>
          </ul>
         </nav>
      </header>
         <main>
+        <div className="mensagem">
+            <p>Erro ao executar fetch</p>
+        </div>
           <div className="conteiner-listagem">
             {produtos.map(produto => {
                 return (
